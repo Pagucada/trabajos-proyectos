@@ -47,16 +47,16 @@ function moverDerecha() {
 
 function moverAbajo() {
     flechaAbajo = setInterval(function() {
-        if (serpienteMovil > 1560) {
-            $("#" + serpienteMovil).removeClass("serpiente");
-            serpienteMovil -= 1560;
-            $("#" + serpienteMovil).addClass("serpiente");
-        } else {
+        if (serpienteMovil % 40 != 0) {
             $("#" + serpienteMovil).removeClass("serpiente");
             serpienteMovil += 40;
             $("#" + serpienteMovil).addClass("serpiente");
-        }  
-    }, 650)
+        } else if (serpienteMovil > 1560) {
+            $("#" + serpienteMovil).removeClass("serpiente");
+            serpienteMovil -= 1560;
+            $("#" + serpienteMovil).addClass("serpiente");
+        }
+    }, 600)
 };
 
 function detener(flecha) {
