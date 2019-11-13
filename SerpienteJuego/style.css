@@ -1,0 +1,36 @@
+
+
+/* Para ver bien las casillas (Quizás provisional) */
+.casilla {
+    /* border: 1px dashed black */
+    /* !!!!!!!!! AUMENTAR TAMAÑO DE CASILLA AL QUITAR BORDES !!!!!!!!! */
+}
+/* -------------------------- */
+
+
+@media(max-width:400px) {
+    .casilla {
+        display: inline-block;
+        background-color: white;
+        width: 4px;
+        height: 4px;
+    }
+}
+@media(min-width:401px) {
+    #tablero {
+        width: 400px;
+        height: 400px;
+    }
+
+    .casilla {
+        /* display: inline-block; */
+        background-color: red;
+        width: 10px;
+        height: 10px;
+        float: left;
+    }
+    
+    .serpiente {
+        background-color: yellow;
+    }
+}
