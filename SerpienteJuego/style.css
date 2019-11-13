@@ -26,7 +26,11 @@
         /* display: inline-block; */
         background-color: red;
         width: 10px;
-        height: 10*px;
+        height: 10px;
         float: left;
+    }
+    
+    .serpiente {
+        background-color: yellow;
     }
 }
