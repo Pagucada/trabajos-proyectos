@@ -47,11 +47,12 @@ function moverDerecha() {
 
 function moverAbajo() {
     flechaAbajo = setInterval(function() {
-        if (serpienteMovil % 40 != 0) {
+        if (serpienteMovil % 40 != 0 || serpienteMovil % 40 === 0) {
             $("#" + serpienteMovil).removeClass("serpiente");
             serpienteMovil += 40;
             $("#" + serpienteMovil).addClass("serpiente");
-        } else if (serpienteMovil > 1560) {
+        }   
+        if (serpienteMovil > 1560) {
             $("#" + serpienteMovil).removeClass("serpiente");
             serpienteMovil -= 1560;
             $("#" + serpienteMovil).addClass("serpiente");
