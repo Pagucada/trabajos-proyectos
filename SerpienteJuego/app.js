@@ -1,4 +1,4 @@
-let i = 0;
+let i = 1;
 // Indice con el cual se definirá la id de cada 'div.casilla'
 
 let coordenadasX = 220;
