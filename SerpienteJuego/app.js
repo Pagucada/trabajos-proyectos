@@ -1,5 +1,8 @@
-let i = 1;
+let i = 0;
 // Indice con el cual se definirá la id de cada 'div.casilla'
+
+let coordenadasX = 220;
+let coordenadasY = 510;
 
 let serpienteInicial = Math.floor(Math.random() * 1600) + 1;
 // let serpienteInicial = 1561
@@ -7,6 +10,7 @@ let serpienteInicial = Math.floor(Math.random() * 1600) + 1;
 
 
 for (columna = 0; columna < 40; columna++) {
+
     if (i === serpienteInicial) {
         $("#tablero").append("<div class='casilla serpiente' id='" + i + "'>");
         $("#" + serpienteInicial).css("background-image", "url('Textures/cabezaSerpienteAbajo.png')");
@@ -15,7 +19,6 @@ for (columna = 0; columna < 40; columna++) {
         $("#tablero").append("<div class='casilla' id='" + i + "'>");
         i++
     }
-
     for (filas = 0; filas < 39; filas++) {
         if (i === serpienteInicial) {
             $("#tablero").append("<div class='casilla serpiente' id='" + i + "'>");
@@ -26,7 +29,7 @@ for (columna = 0; columna < 40; columna++) {
             i++
         }
     }
-};
+}; 
 // Se construye el tablero de 40x40 casillasf
 // Se define serpienteInicial como una casilla con una clase extra '.serpiente'
 // Con el valor obtenido en la variable serpienteInicial definida anteriormente (número al azar entre 1 y 1600)
@@ -68,11 +71,15 @@ function detener(flecha) {
     return clearInterval(flecha);
 };
 
-
-
 direccionSerpiente = "quieta";
+
 $(document).keydown(function (event) {
-    if (event.which === 39) {
+    // console.log(event.which);
+    if (event.which === 32) {
+        direccionSerpiente = "quieta";
+        console.log("detener");
+}
+    else if (event.which === 39) {
         direccionSerpiente = "derecha";
         console.log("moverDerecha");
     } else if (event.which === 40) {
@@ -85,6 +92,11 @@ $(document).keydown(function (event) {
         direccionSerpiente = "arriba";
         console.log("moverArriba");
     }
+});
+
+
+$(document).on("scroll", function(){
+    console.log("Y" + Math.floor(scrollY) + " | X" + Math.floor(scrollX) )
 });
 
 // Bloque de código que se repetirá cada 500 milisegundos para actualizar posición de serpiente
@@ -153,8 +165,7 @@ setInterval(function () {
             $("#" + serpienteMoviendose).addClass("serpiente");
         }
     }
-
-}, 500)
+}, 300)
 
 
 
